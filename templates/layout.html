@@ -1,0 +1,57 @@
+<html>
+
+<meta http-equiv="cache-control" content="max-age=0">
+<meta http-equiv="cache-control" content="no-cache">
+<meta http-equiv="expires" content="-1">
+<meta http-equiv="pragma" content="no-cache">
+
+    <head>
+
+      <!-- Bootstrap Core CSS -->
+    <link href="{{ url_for('static', filename='vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="{{ url_for('static', filename='vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="{{ url_for('static', filename='vendor/simple-line-icons/css/simple-line-icons.css') }}" rel="stylesheet">
+   
+    <!-- Custom CSS -->
+    <link href="{{ url_for('static', filename='css/stylish-portfolio.min.css') }}" rel="stylesheet">
+
+          {% if title %}
+          <title>{{ title }} - HW3</title>
+          {% else %}
+          <title>HW 3 - User Posts System</title>
+          {% endif %}
+
+    </head>
+    <body>
+        <div class="conatiner">
+            <hr>
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                <ul class=flashes>
+                    {% for message in messages %}
+                    <li>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+            {% endwith %}
+            
+            {% block content %}
+            {% endblock %}
+
+        </div>
+
+       <!-- Bootstrap core JavaScript -->
+    <link href="{{ url_for('static', filename='vendor/jquery/jquery.min.js') }}">
+    <link href="{{ url_for('static', filename='vendor/bootstrap/js/bootstrap.bundle.min.js') }}">
+
+    <!-- Plugin JavaScript -->
+    <link href="{{ url_for('static', filename='vendor/jquery-easing/jquery.easing.min.js') }}">
+
+    <!-- Custom scripts for this template -->
+    <link href="{{ url_for('static', filename='js/stylish-portfolio.min.js') }}">
+
+    </body>
+</html>

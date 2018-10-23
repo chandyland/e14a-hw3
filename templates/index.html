@@ -1,0 +1,60 @@
+{% extends "layout.html" %}
+{% block content %}
+
+    <header class="masthead d-flex">
+      <div class="container text-center my-auto">
+       
+      <!-- Welcome user -->
+        <h1 class="mb-2">Welcome Back {{ session_username }}</h1>
+        {% if session_username is defined %} 
+              <h2 class="mb-2"> You and Your Followers</h2>
+              <div class="input-group-prepend">      
+                <!-- New Post button -->
+                <form action="/newpost" method="GET">
+                  <button type="submit" class="btn-primary"> New Post </button> 
+                </form> 
+
+                <!-- Logout button -->
+                <form action="/logout" method="POST">
+                  <button type="submit" class="btn-secondary"> Log out</button> 
+                </form>
+
+                <form class="form-inline" action="/search" method="POST">
+                     <!-- Search box -->
+                     <input id="search_box" type="text" name="search_box"></input>
+
+                     <button type="submit" class="btn-secondary"> Search </button> 
+                </form>   
+              </div>
+        {% else %}
+              <h5 class="mb-2"> <i>All posts are listed here. To create a followers group, please log-in or sign-up.</i></h5>
+              <div class="input-group-prepend">      
+                <!-- Login button -->
+                <form action="/login" method="GET">
+                  <button type="submit" class="btn-primary"> Log in</button> 
+                </form>&nbsp; 
+
+                <!-- Signup button -->
+                <form action="/signup" method="GET">
+                  <button type="submit" class="btn-secondary"> Sign up </button> 
+                </form>
+              </div>
+        {% endif %}
+              
+              <div style="padding-top:30;
+              padding-bottom:30;
+              background-color:#ffffff55;
+              -moz-border-radius: 5px;
+              -webkit-border-radius: 5px;">
+
+                <!-- List posts -->
+                {% for p in posts %}
+                  <p>{{ p.author }}: {{ p.content }}</p>
+                {% endfor %}
+
+             </div> 
+             <br>   
+      
+</header>
+
+{% endblock %}
