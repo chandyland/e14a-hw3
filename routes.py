@@ -3,13 +3,15 @@ from flask import Flask, flash, render_template, request, url_for, redirect, ses
 from models import db, User, Follows, Post
 from forms import LoginForm, SignupForm, NewpostForm
 from passlib.hash import sha256_crypt
+from flask_heroku import Heroku
 
 #import Heroku
 
 app = Flask(__name__)
 app.secret_key = "cscie14a-hw3"
+heroku = Heroku(app)
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://localhost/hw3_db'
+#app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://localhost/hw3_db'
 
 db.init_app(app)
 
