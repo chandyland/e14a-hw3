@@ -5,7 +5,7 @@
       <div class="container text-center my-auto">
        
       <!-- Welcome user -->
-        <h1 class="mb-2">Welcome Back {{ session_username }}</h1>
+        <h1 class="mb-2">Welcome {{ session_username }}</h1>
         {% if session_username is defined %} 
               <h2 class="mb-2"> You and Your Followers</h2>
               <div class="input-group-prepend">      
