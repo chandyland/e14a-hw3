@@ -18,13 +18,6 @@
                 <form action="/logout" method="POST">
                   <button type="submit" class="btn-secondary"> Log out</button> 
                 </form>
-
-                <form class="form-inline" action="/search" method="POST">
-                     <!-- Search box -->
-                     <input id="search_box" type="text" name="search_box"></input>
-
-                     <button type="submit" class="btn-secondary"> Search </button> 
-                </form>   
               </div>
         {% else %}
               <h5 class="mb-2"> <i>All posts are listed here. To create a followers group, please log-in or sign-up.</i></h5>
@@ -40,7 +33,12 @@
                 </form>
               </div>
         {% endif %}
-              
+              <form class="form-inline" action="/search" method="POST">
+                <!-- Search box -->
+                <input id="search_box" type="text" name="search_box"></input>
+
+                <button type="submit" class="btn-secondary"> Search </button> 
+              </form>   
               <div style="padding-top:30;
               padding-bottom:30;
               background-color:#ffffff55;
